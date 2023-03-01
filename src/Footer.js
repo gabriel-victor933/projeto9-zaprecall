@@ -59,13 +59,24 @@ function Footer({ qtd, respondidas, fila, fim }) {
         }
     }
 
+    function alterarDataTest(res){
+        switch(res){
+            case "Não lembrei": return "no-icon";
+            case "Quase Não lembrei": return "partial-icon";
+            case "Zap!": return "zap-icon";
+
+            default: return
+
+        }
+    }
+
 
     if(fim){
         return (
             <Rodape data-test="footer">
                 {fila.includes("Não lembrei") ? <Mensagemputz /> : <Mensagemparabens />}
                 <Texto>{respondidas}/{qtd} CONCLUIDOS</Texto>
-                <Fila>{fila.map((p,i) => <img key={i} src={alterarIcone(p)} />)}</Fila>
+                <Fila>{fila.map((p,i) => <img key={i} src={alterarIcone(p)} data-test={alterarDataTest(p)}/>)}</Fila>
             </Rodape>
         );
     }  
@@ -73,7 +84,7 @@ function Footer({ qtd, respondidas, fila, fim }) {
     return (
         <Rodape data-test="footer">
             <Texto>{respondidas}/{qtd} CONCLUIDOS</Texto>
-            <Fila>{fila.map((p,i) => <img key={i} src={alterarIcone(p)} />)}</Fila>
+            <Fila>{fila.map((p,i) => <img key={i} src={alterarIcone(p)} data-test={alterarDataTest(p)}/>)}</Fila>
         </Rodape>
     );
 }

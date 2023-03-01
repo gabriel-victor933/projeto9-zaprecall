@@ -45,7 +45,7 @@ const Boasvindas = ({alterarTela}) =>  {
         <>
         <Imagem src={logo} />
         <Titulo>ZapRecall</Titulo>
-        <Botao onClick={alterarTela}>Iniciar Recall!</Botao>
+        <Botao onClick={alterarTela} data-test="start-btn">Iniciar Recall!</Botao>
         </>
 
     )

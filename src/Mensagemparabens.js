@@ -24,7 +24,7 @@ const Mensagemparabens = () => {
 
     return (
         <>
-        <Mensagem>
+        <Mensagem data-test="finish-text">
             <h1>&#129395; Parabéns</h1>
             <p>Você não esqueceu de nenhum flashcard!</p>
         </Mensagem>

@@ -23,7 +23,7 @@ const Mensagemputz = () => {
 
     return (
         <>
-        <Mensagem>
+        <Mensagem data-test="finish-text">
             <h1>&#129395; Putz...</h1>
             <p>Ainda faltam alguns... Mas não desanime!</p>
         </Mensagem>
