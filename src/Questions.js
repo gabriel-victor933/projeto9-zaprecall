@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Question from "./Question"
 import { useState } from "react";
 
+
 const Perguntas = styled.main`
     width: 100%;
     display: flex;
