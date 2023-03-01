@@ -9,7 +9,7 @@ import Boasvindas from "./Boasvindas"
 
 const Pagina = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background-color: #FB6B6B;
   margin-bottom: ${props => props.inicio === false ? "0px" : "70px"};
   display: flex;
