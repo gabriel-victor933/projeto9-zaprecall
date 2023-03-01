@@ -2,8 +2,8 @@ import styled from "styled-components"
 import iconeCerto from "./assets/imgs/icone_certo.png"
 import iconeErro from "./assets/imgs/icone_erro.png"
 import iconeQuase from "./assets/imgs/icone_quase.png"
-import Mensagemparabens from "/Mensagemparabens"
-import Mensagemputz from "/Mensagemputz"
+import Mensagemparabens from "./Mensagemparabens"
+import Mensagemputz from "./Mensagemputz"
 
 
 const Rodape = styled.footer`
@@ -63,9 +63,7 @@ function Footer({ qtd, respondidas, fila, fim }) {
     if(fim){
         return (
             <Rodape data-test="footer">
-                <div>
-                    {fila.includes("Não lembrei") ? }
-                </div>
+                {fila.includes("Não lembrei") ? <Mensagemputz /> : <Mensagemparabens />}
                 <Texto>{respondidas}/{qtd} CONCLUIDOS</Texto>
                 <Fila>{fila.map((p,i) => <img key={i} src={alterarIcone(p)} />)}</Fila>
             </Rodape>

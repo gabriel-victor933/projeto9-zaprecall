@@ -30,7 +30,7 @@ const Pergunta = styled(Fechada)`
 
 const Resposta = styled(Fechada)`
     flex-direction: column;
-    height: 131px;
+    min-height: 131px;
     align-items: center;
     padding: 10px 15px;
 `;
@@ -42,6 +42,7 @@ font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 19px;
+margin-bottom: 5px;
 color: ${props => props.resultado === undefined || props.resultado === "nenhum" ? "#333333": 
                     props.resultado === "Zap!" ? "#2FBE34" : props.resultado === "Não lembrei"? "#FF3030":"#FF922E"};
 
@@ -58,6 +59,7 @@ const Botoes = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 5px;
 `;
 
 const Botao = styled.button`
