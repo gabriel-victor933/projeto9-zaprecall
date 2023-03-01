@@ -23,10 +23,10 @@ const Rodape = styled.footer`
 
 `;
 
-const Footer = () => {
+const Footer = ({qtd, respondidas}) => {
 
     return (
-        <Rodape>0/4 CONCLUIDOS</Rodape>
+        <Rodape data-test="footer">{respondidas}/{qtd} CONCLUIDOS</Rodape>
     )
 }
 

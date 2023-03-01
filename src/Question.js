@@ -85,24 +85,36 @@ const Question = ({numero, pergunta, resposta, estado, resultado, alterarEstado,
             }
         }
 
+        function alterarDataTest(res){
+            switch(res){
+                case arr[0]: return "no-icon";
+                case arr[1]: return "partial-icon";
+                case arr[2]: return "zap-icon";
+
+                default: return
+
+            }
+        }
+
+
 
         switch(estado){
 
-            case "fechada": return (<Fechada>
-                                    <Texto resultado={resultado}>Pergunta {numero}</Texto>
-                                    {resultado === "nenhum" ? <Imagem src={seta} estado={estado} onClick={() => alterarEstado(numero-1)}/> :
-                                            <Imagem src={alterarIcone(resultado)} estado={estado}/>}
+            case "fechada": return (<Fechada data-test="flashcard">
+                                    <Texto resultado={resultado} data-test="flashcard-text">Pergunta {numero}</Texto>
+                                    {resultado === "nenhum" ? <Imagem src={seta} estado={estado} onClick={() => alterarEstado(numero-1)} data-test="play-btn" /> :
+                                            <Imagem src={alterarIcone(resultado)} estado={estado} data-test={alterarDataTest(resultado)}/>}
                                     
                                     </Fechada>);
 
-            case "pergunta": return (<Pergunta>
-                                    <Texto>{pergunta}</Texto>
-                                    <Imagem src={setaVirar} estado={estado} onClick={() => alterarEstado(numero-1)}/>
+            case "pergunta": return (<Pergunta data-test="flashcard">
+                                    <Texto data-test="flashcard-text">{pergunta}</Texto>
+                                    <Imagem src={setaVirar} estado={estado} onClick={() => alterarEstado(numero-1)} data-test="turn-btn"/>
                                     </Pergunta>);
 
-            case "resposta": return (<Resposta>
-                                    <Texto>{resposta}</Texto>
-                                    <Botoes>{arr.map((p) => <Botao key={p} tipo={p} onClick={() => alterarResultado(numero-1,p)}>{p}</Botao>)}</Botoes>
+            case "resposta": return (<Resposta data-test="flashcard">
+                                    <Texto data-test="flashcard-text">{resposta}</Texto>
+                                    <Botoes>{arr.map((p,i) => <Botao key={p} data-test={i == 0 ? "no-btn" : i == 1 ? "partial-btn" : "zap-btn"} tipo={p} onClick={() => alterarResultado(numero-1,p)}>{p}</Botao>)}</Botoes>
                                     </Resposta>);
 
             default: return
