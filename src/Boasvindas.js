@@ -35,6 +35,11 @@ border: 1px solid #D70900;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 border-radius: 5px;
 margin: 50px 0px 60px 0px;  
+
+&:hover {
+    background: #FFFF00;
+    border: 2px solid #D70900;
+}
 `;
 
 const Boasvindas = ({alterarTela}) =>  {

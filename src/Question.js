@@ -21,6 +21,10 @@ const Fechada = styled.div`
     box-sizing: border-box;
     padding: 10px 15px;
     margin: 12.5px 0px;
+
+    &:hover {
+    background: rgb(249,249,249);
+}
 `;
 
 const Pergunta = styled(Fechada)`
