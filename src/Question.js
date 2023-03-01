@@ -42,16 +42,16 @@ font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 19px;
-color: ${props => props.resultado == undefined || props.resultado == "nenhum" ? "#333333": 
-                    props.resultado == "Zap!" ? "#2FBE34" : props.resultado == "Não lembrei"? "#FF3030":"#FF922E"};
+color: ${props => props.resultado === undefined || props.resultado === "nenhum" ? "#333333": 
+                    props.resultado === "Zap!" ? "#2FBE34" : props.resultado === "Não lembrei"? "#FF3030":"#FF922E"};
 
-text-decoration: ${props => props.resultado == undefined || props.resultado == "nenhum" ? "none" : "line-through"}
+text-decoration: ${props => props.resultado === undefined || props.resultado === "nenhum" ? "none" : "line-through"}
 `;
 
 const Imagem = styled.img`
         width: 20px;
         height: 23px;
-        align-self: ${props => props.estado == "fechada" ? "center": "flex-end"}
+        align-self: ${props => props.estado === "fechada" ? "center": "flex-end"}
 `;
 
 const Botoes = styled.div`
@@ -63,7 +63,7 @@ const Botoes = styled.div`
 const Botao = styled.button`
     width: 85.17px;
     height: 37.17px;
-    background-color: ${props => props.tipo == "Zap!" ? "#2FBE34" : props.tipo == "Não lembrei"? "#FF3030":"#FF922E"};;
+    background-color: ${props => props.tipo === "Zap!" ? "#2FBE34" : props.tipo === "Não lembrei"? "#FF3030":"#FF922E"};;
     border: none;
     color: white;
     border-radius: 5px;
@@ -80,6 +80,8 @@ const Question = ({numero, pergunta, resposta, estado, resultado, alterarEstado,
                 case arr[1]: return iconeQuase;
                 case arr[2]: return iconeCerto;
 
+                default: return
+
             }
         }
 
@@ -88,7 +90,7 @@ const Question = ({numero, pergunta, resposta, estado, resultado, alterarEstado,
 
             case "fechada": return (<Fechada>
                                     <Texto resultado={resultado}>Pergunta {numero}</Texto>
-                                    {resultado == "nenhum" ? <Imagem src={seta} estado={estado} onClick={() => alterarEstado(numero-1)}/> :
+                                    {resultado === "nenhum" ? <Imagem src={seta} estado={estado} onClick={() => alterarEstado(numero-1)}/> :
                                             <Imagem src={alterarIcone(resultado)} estado={estado}/>}
                                     
                                     </Fechada>);
@@ -102,6 +104,8 @@ const Question = ({numero, pergunta, resposta, estado, resultado, alterarEstado,
                                     <Texto>{resposta}</Texto>
                                     <Botoes>{arr.map((p) => <Botao key={p} tipo={p} onClick={() => alterarResultado(numero-1,p)}>{p}</Botao>)}</Botoes>
                                     </Resposta>);
+
+            default: return
 
         }
         
